@@ -8,6 +8,7 @@ public class UIController : MonoBehaviour
     [Header("Sub elements")]
     public GameObject endText;
     public GameObject killedByEnemyText;
+    public GameObject killedByLaserText;
     public GameObject pauseText;
     public GameObject darker;
 

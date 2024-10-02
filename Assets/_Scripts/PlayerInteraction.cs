@@ -73,6 +73,21 @@ public class PlayerInteraction : MonoBehaviour
                 audioSource.PlayOneShot(activateKeycardDeny);
             }
         }
+        else if (hit.collider.CompareTag("KeyPlacerLasers"))
+        {
+            KeyPlacerLasers keyPlacerLasers = hit.collider.GetComponent<KeyPlacerLasers>();
+            if (cardsCollectedYellow > 0 && !keyPlacerLasers.isUnlocked)
+            {
+                cardsCollectedYellow--;
+                audioSource.PlayOneShot(activateKeycardAllow);
+                UpdateCardsUI();
+                keyPlacerLasers.UnlockPlacerLasers();
+            }
+            else if (!keyPlacerLasers.isUnlocked)
+            {
+                audioSource.PlayOneShot(activateKeycardDeny);
+            }
+        }
         else if (hit.collider.CompareTag("KeycardYellow"))
         {
             hit.collider.gameObject.SetActive(false);

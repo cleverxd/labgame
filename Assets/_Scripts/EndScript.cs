@@ -144,5 +144,32 @@ public class EndScript : MonoBehaviour
         uiController.killedByEnemyText.SetActive(true);
         uiController.ShowWinLoseScreen();
     }
+    public IEnumerator LoseByLaser()
+    {
+        playerMovement.canMove = false;
+        playerMovement.canRotate = false;
+        playerMovement.canJump = false;
 
+        float targetExposure = -20f;
+        float initialExposure = colorAdjustmentsActive ? colorAdjustments.postExposure.value : 0f;
+        float exposureTransitionDuration = 0.25f; // Adjust this for a smoother or faster transition
+        float elapsedTime = 0f;
+
+        while (elapsedTime < exposureTransitionDuration)
+        {
+            // Linearly interpolate the post-exposure value from the initial to the target value
+            float newExposure = Mathf.Lerp(initialExposure, targetExposure, elapsedTime / exposureTransitionDuration);
+            colorAdjustments.postExposure.value = newExposure;
+
+            elapsedTime += Time.deltaTime;
+            yield return null; // Wait for the next frame
+        }
+
+        // Ensure the final exposure value is applied after the transition
+        colorAdjustments.postExposure.value = targetExposure;
+        exposureAdjusted = true; // Prevent further changes after adjusting once
+
+        uiController.killedByLaserText.SetActive(true);
+        uiController.ShowWinLoseScreen();
+    }
 }

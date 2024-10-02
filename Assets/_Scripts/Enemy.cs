@@ -17,14 +17,17 @@ public class Enemy : MonoBehaviour
     
     [Header("Other scripts")]
     public Timer timer;
-    public EndScript endScript;
-    [Header("Audio")]
-    public AudioSource audioSource;
-    public AudioClip playerDying;
+    private EndScript endScript;
+    private PlayerAudio playerAudio;
 
     private bool isChasing = false;      // State of whether the enemy is chasing the player
     private bool playerChased = false;
-    
+
+    private void Awake()
+    {
+        playerAudio = FindFirstObjectByType<PlayerAudio>();
+        endScript = FindFirstObjectByType<EndScript>();
+    }
 
     private void Start()
     {
@@ -131,7 +134,7 @@ public class Enemy : MonoBehaviour
             if (!playerChased)
             {
                 timer.StopTimer();
-                audioSource.PlayOneShot(playerDying);
+                playerAudio.audioSource.PlayOneShot(playerAudio.playerDying);
                 StartCoroutine(endScript.LoseByEnemy());
             }
 

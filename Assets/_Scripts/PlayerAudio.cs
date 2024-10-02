@@ -16,6 +16,9 @@ public class PlayerAudio : MonoBehaviour
     private float footstepsInterval = 0f;
     private float footstepTimer = 0f;
 
+    [Header("Player dying")]
+    public AudioClip playerDying;
+
     private void Start()
     {
         playerMovement = GetComponent<PlayerMovement>();

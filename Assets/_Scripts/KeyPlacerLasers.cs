@@ -1,11 +1,14 @@
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
-public class KeyPlacer : MonoBehaviour
+public class KeyPlacerLasers : MonoBehaviour
 {
-    private DoorController doorController;
+    public Lasers lasers;
+
     private Material keyPlacerMat;
 
-    public Transform doorTransform;
+    public GameObject lasersHolder;
     public Material lockedMaterial;
     public Material unlockedMaterial;
 
@@ -14,19 +17,18 @@ public class KeyPlacer : MonoBehaviour
     private void Start()
     {
         keyPlacerMat = GetComponent<MeshRenderer>().materials[0];
-        doorController = doorTransform.GetComponent<DoorController>();
 
         keyPlacerMat = isUnlocked ? unlockedMaterial : lockedMaterial;
         GetComponent<MeshRenderer>().material = keyPlacerMat;
-
     }
 
-    public void UnlockPlacer()
+    public void UnlockPlacerLasers()
     {
         isUnlocked = true;
+        lasers.allowToMoveTrough = true;
 
         keyPlacerMat = isUnlocked ? unlockedMaterial : lockedMaterial;
         GetComponent<MeshRenderer>().material = keyPlacerMat;
-        doorController.ManipulateWithDoor();
+        lasersHolder.SetActive(false);
     }
 }

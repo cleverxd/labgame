@@ -9,6 +9,7 @@ TagManager:
   - KeycardYellow
   - KeyPlacerRed
   - KeycardRed
+  - KeyPlacerLasers
   layers:
   - Default
   - TransparentFX
