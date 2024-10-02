@@ -8,8 +8,8 @@ public class KeyPickable : MonoBehaviour
     {
         if (other.tag == "Player")
         {
-            other.gameObject.GetComponent<PlayerController>().cardsCollectedYellow++;
-            Debug.Log(other.gameObject.GetComponent<PlayerController>().cardsCollectedYellow);
+            other.gameObject.GetComponent<PlayerInteraction>().cardsCollectedYellow++;
+            Debug.Log(other.gameObject.GetComponent<PlayerInteraction>().cardsCollectedYellow);
             Destroy(gameObject);
         }
     }

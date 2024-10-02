@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class KeyPlacer : MonoBehaviour
 {
-    private PlayerController controller;
+    private PlayerMovement controller;
     private DoorController doorController;
     private Material keyPlacerMat;
 
@@ -15,7 +15,7 @@ public class KeyPlacer : MonoBehaviour
     private void Start()
     {
         keyPlacerMat = GetComponent<MeshRenderer>().materials[0];
-        controller = FindFirstObjectByType<PlayerController>();
+        controller = FindFirstObjectByType<PlayerMovement>();
         doorController = doorTransform.GetComponent<DoorController>();
 
         keyPlacerMat = isUnlocked ? unlockedMaterial : lockedMaterial;

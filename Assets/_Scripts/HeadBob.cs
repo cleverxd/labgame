@@ -3,7 +3,7 @@ using UnityEngine;
 public class HeadBob : MonoBehaviour
 {
     public CharacterController characterController; // Reference to the player's CharacterController
-    public PlayerController playerController;       // Reference to the PlayerController script for checking running state
+    public PlayerMovement playerMovement;       // Reference to the PlayerController script for checking running state
     public float walkBobSpeed = 7f;                 // Speed of head bobbing while walking
     public float runBobSpeed = 14f;                 // Speed of head bobbing while running
     public float bobAmountHorizontal = 0.05f;       // Amount of horizontal bobbing
@@ -28,7 +28,7 @@ public class HeadBob : MonoBehaviour
         if (characterController.isGrounded && characterController.velocity.magnitude > 0.1f)
         {
             // Use walk or run bob speed depending on the player's movement state
-            float currentBobSpeed = playerController.isRunning ? runBobSpeed : walkBobSpeed;
+            float currentBobSpeed = playerMovement.isRunning ? runBobSpeed : walkBobSpeed;
 
             // Increment the timer for smooth bobbing effect
             timer += Time.deltaTime * currentBobSpeed;

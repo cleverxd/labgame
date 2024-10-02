@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class DoorController : MonoBehaviour
 {
-    private PlayerController playerController;
+    private NavmeshBuilder navmeshBuilder;
     public KeyPlacer[] keyPlacers;
     public Transform[] doorPartsToMove;
     private bool isDoorUnlocked;
@@ -18,7 +18,7 @@ public class DoorController : MonoBehaviour
 
     private void Awake()
     {
-        playerController = FindFirstObjectByType<PlayerController>();
+        navmeshBuilder = FindFirstObjectByType<NavmeshBuilder>();
     }
 
     private void Start()
@@ -74,6 +74,6 @@ public class DoorController : MonoBehaviour
             doorPartsToMove[i].position = targetPositions[i];
         }
 
-        StartCoroutine(playerController.ClearAndRebuildNavmesh());
+        StartCoroutine(navmeshBuilder.ClearAndRebuildNavmesh());
     }
 }

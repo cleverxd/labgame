@@ -5021,6 +5021,7 @@ Transform:
   m_Children:
   - {fileID: 1997339862}
   - {fileID: 529326895}
+  - {fileID: 1891211079}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &75089648
@@ -19738,7 +19739,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   characterController: {fileID: 762423772}
-  playerController: {fileID: 762423767}
+  playerMovement: {fileID: 762423775}
   walkBobSpeed: 7
   runBobSpeed: 14
   bobAmountHorizontal: 0.05
@@ -41653,8 +41654,10 @@ GameObject:
   - component: {fileID: 762423770}
   - component: {fileID: 762423769}
   - component: {fileID: 762423768}
-  - component: {fileID: 762423767}
   - component: {fileID: 762423772}
+  - component: {fileID: 762423775}
+  - component: {fileID: 762423774}
+  - component: {fileID: 762423773}
   m_Layer: 6
   m_Name: -----Player-----
   m_TagString: Player
@@ -41662,43 +41665,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &762423767
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 762423766}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: aca4f42075d0e774e80125e57be4214e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  walkSpeed: 3
-  runSpeed: 5
-  rotationSpeed: 250
-  jumpHeight: 0.3
-  canMove: 1
-  canRotate: 1
-  canJump: 0
-  canUseFlashlight: 0
-  isRunning: 0
-  audioSource: {fileID: 189990531}
-  footstepSound1: {fileID: 8300000, guid: 2f949b40b7283404099a802630fb2077, type: 3}
-  footstepSound2: {fileID: 8300000, guid: dfff2b3c7dfb43c419592789f0a6ab81, type: 3}
-  activateKeycardAllow: {fileID: 8300000, guid: 739faa6d9c243d2429e63bdef0e2351c,
-    type: 3}
-  activateKeycardDeny: {fileID: 8300000, guid: 54ab126133fb9cf4a8379893f3226501, type: 3}
-  pickupKeycardSound: {fileID: 8300000, guid: 292cf77f1f659a8439f4911e6c360d72, type: 3}
-  footstepIntervalWalk: 0.4
-  footstepIntervalRun: 0.3
-  interactionRange: 2
-  cardsCollectedYellow: 0
-  cardsCollectedRed: 0
-  flashlight: {fileID: 1069057762}
-  yellowCards: {fileID: 1823576559}
-  redCards: {fileID: 1522223269}
-  navmesh: {fileID: 588074454}
 --- !u!136 &762423768
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -41816,6 +41782,66 @@ CharacterController:
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &762423773
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 762423766}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 522aa379791c2cd4e8ce259163cd0da0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioSource: {fileID: 189990531}
+  activateKeycardAllow: {fileID: 8300000, guid: 739faa6d9c243d2429e63bdef0e2351c,
+    type: 3}
+  activateKeycardDeny: {fileID: 8300000, guid: 54ab126133fb9cf4a8379893f3226501, type: 3}
+  pickupKeycardSound: {fileID: 8300000, guid: 292cf77f1f659a8439f4911e6c360d72, type: 3}
+  interactionRange: 2
+  cardsCollectedYellow: 0
+  cardsCollectedRed: 0
+  yellowCards: {fileID: 1823576559}
+  redCards: {fileID: 1522223269}
+--- !u!114 &762423774
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 762423766}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 61b080f0e7a8beb4381ac632b720d851, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioSource: {fileID: 189990531}
+  footstepSound1: {fileID: 8300000, guid: 2f949b40b7283404099a802630fb2077, type: 3}
+  footstepSound2: {fileID: 8300000, guid: dfff2b3c7dfb43c419592789f0a6ab81, type: 3}
+  footstepIntervalWalk: 0.4
+  footstepIntervalRun: 0.3
+--- !u!114 &762423775
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 762423766}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 904fc69784f771e4e99ef56e1df42e94, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  walkSpeed: 3
+  runSpeed: 5
+  jumpHeight: 2
+  gravity: -9.81
+  rotationSpeed: 250
+  isRunning: 0
+  canMove: 1
+  canJump: 0
+  canRotate: 1
 --- !u!1 &762574661
 GameObject:
   m_ObjectHideFlags: 0
@@ -70225,7 +70251,7 @@ MonoBehaviour:
   - {fileID: 1072893975}
   - {fileID: 148281126}
   - {fileID: 408964104}
-  playerController: {fileID: 762423767}
+  playerMovement: {fileID: 0}
   uiController: {fileID: 529326894}
   timerScript: {fileID: 1997339863}
   rotationResetDuration: 0.5
@@ -95218,6 +95244,51 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1888591176}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1891211078
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1891211079}
+  - component: {fileID: 1891211080}
+  m_Layer: 0
+  m_Name: NavmeshBuilder
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1891211079
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1891211078}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 73104152}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1891211080
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1891211078}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fdae96490a445aa46be59c8a9a6a3e48, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  navmesh: {fileID: 588074454}
 --- !u!1001 &1891296033
 PrefabInstance:
   m_ObjectHideFlags: 0

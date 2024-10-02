@@ -8,7 +8,7 @@ using UnityEngine.Rendering.Universal;
 public class EndScript : MonoBehaviour
 {
     public Light[] lights; // Array of lights
-    public PlayerController playerController;
+    public PlayerMovement playerMovement;
     public UIController uiController;
     public Timer timerScript;
     public float rotationResetDuration = 0.5f; // Duration for rotation reset
@@ -33,9 +33,9 @@ public class EndScript : MonoBehaviour
     {
         if (other.CompareTag("Player")) // Make sure it's the player triggering
         {
-            playerController.canMove = false;
-            playerController.canRotate = false;
-            playerController.canJump = false;
+            playerMovement.canMove = false;
+            playerMovement.canRotate = false;
+            playerMovement.canJump = false;
             timerScript.StopTimer();
             // Start rotation reset
             StartCoroutine(ResetCameraAndPlayerRotation());
@@ -52,7 +52,7 @@ public class EndScript : MonoBehaviour
         float elapsedTime = 0f;
 
         // Get initial rotations
-        Quaternion initialPlayerRotation = playerController.transform.rotation;
+        Quaternion initialPlayerRotation = playerMovement.transform.rotation;
         Quaternion initialCameraRotation = Camera.main.transform.localRotation;
 
         // Define target rotations
@@ -63,7 +63,7 @@ public class EndScript : MonoBehaviour
         while (elapsedTime < rotationResetDuration)
         {
             // Interpolate player rotation
-            playerController.transform.rotation = Quaternion.Slerp(initialPlayerRotation, targetPlayerRotation, elapsedTime / rotationResetDuration);
+            playerMovement.transform.rotation = Quaternion.Slerp(initialPlayerRotation, targetPlayerRotation, elapsedTime / rotationResetDuration);
 
             // Interpolate camera rotation
             Camera.main.transform.localRotation = Quaternion.Slerp(initialCameraRotation, targetCameraRotation, elapsedTime / rotationResetDuration);
@@ -73,7 +73,7 @@ public class EndScript : MonoBehaviour
         }
 
         // Ensure final rotations are set exactly
-        playerController.transform.rotation = targetPlayerRotation;
+        playerMovement.transform.rotation = targetPlayerRotation;
         Camera.main.transform.localRotation = targetCameraRotation;
     }
 
@@ -118,9 +118,9 @@ public class EndScript : MonoBehaviour
 
     public IEnumerator LoseByEnemy()
     {
-        playerController.canMove = false;
-        playerController.canRotate = false;
-        playerController.canJump = false;
+        playerMovement.canMove = false;
+        playerMovement.canRotate = false;
+        playerMovement.canJump = false;
 
         float targetExposure = -20f;
         float initialExposure = colorAdjustmentsActive ? colorAdjustments.postExposure.value : 0f;
