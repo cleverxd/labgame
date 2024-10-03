@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 95814117958417039}
   - component: {fileID: 9030137353151082508}
   - component: {fileID: -1512683373926565648}
+  - component: {fileID: -8625326259297646753}
   m_Layer: 0
   m_Name: Furn_Couch
   m_TagString: Untagged
@@ -26,13 +27,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4347209682583456960}
+  serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &95814117958417039
 MeshFilter:
@@ -92,9 +93,44 @@ MeshCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4347209682583456960}
   m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
   m_IsTrigger: 0
+  m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 4
+  serializedVersion: 5
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: -4689921116363433651, guid: 1abbaf386b79c0249814923c46760fb7, type: 3}
+--- !u!114 &-8625326259297646753
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4347209682583456960}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5e6e230b19e30394ea5f776b8d7f86e1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <CombineStatus>k__BackingField: 0
+  <ControllerIndex>k__BackingField: 0
+  <CombineAtStart>k__BackingField: 1
+  <CombineErrorStrategy>k__BackingField: 0
+  <AfterCombineAction>k__BackingField: 0
+  <IsIncompatible>k__BackingField: 0
+  <IncompatibilityReason>k__BackingField: 
+  <HasCombineErrors>k__BackingField: 0
+  <CombineErrors>k__BackingField: 
+  onCombineFinishedUnityEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  _renderer: {fileID: 9030137353151082508}
+  _filter: {fileID: 95814117958417039}
+  _mesh: {fileID: -4689921116363433651, guid: 1abbaf386b79c0249814923c46760fb7, type: 3}

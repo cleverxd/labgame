@@ -152,7 +152,8 @@ public class SettingsSetup : MonoBehaviour
     private void SetFrameRate(int fps)
     {
         currentFpsIndex = fps;
-        
+
+        QualitySettings.vSyncCount = 0;
 
         if (currentFpsIndex == 0)
         {

@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 8630640014680850638}
   - component: {fileID: 8630640014679753230}
   - component: {fileID: 3915119109276218093}
+  - component: {fileID: 394627293583480893}
   m_Layer: 0
   m_Name: hospital bed
   m_TagString: Untagged
@@ -105,3 +106,30 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 2.0431802, y: 0.739991, z: 0.7666031}
   m_Center: {x: 0.0007479191, y: 0.36814305, z: -0.011322081}
+--- !u!114 &394627293583480893
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8630640014681758926}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5e6e230b19e30394ea5f776b8d7f86e1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <CombineStatus>k__BackingField: 0
+  <ControllerIndex>k__BackingField: 0
+  <CombineAtStart>k__BackingField: 1
+  <CombineErrorStrategy>k__BackingField: 0
+  <AfterCombineAction>k__BackingField: 0
+  <IsIncompatible>k__BackingField: 0
+  <IncompatibilityReason>k__BackingField: 
+  <HasCombineErrors>k__BackingField: 0
+  <CombineErrors>k__BackingField: 
+  onCombineFinishedUnityEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  _renderer: {fileID: 8630640014679753230}
+  _filter: {fileID: 8630640014680850638}
+  _mesh: {fileID: 4300000, guid: b177f7ee60a86d44fa63b6e6f65c2fc9, type: 3}

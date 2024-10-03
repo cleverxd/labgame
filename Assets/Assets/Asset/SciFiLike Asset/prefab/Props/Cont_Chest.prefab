@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 8463654187124618713}
   - component: {fileID: 4952326380376562220}
   - component: {fileID: -936110681562197252}
+  - component: {fileID: 4927924695490857358}
   m_Layer: 0
   m_Name: Cont_Chest
   m_TagString: Untagged
@@ -26,6 +27,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1010674622471981240}
+  serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
@@ -33,7 +35,6 @@ Transform:
   m_Children:
   - {fileID: 1619328200623908178}
   m_Father: {fileID: 0}
-  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &8463654187124618713
 MeshFilter:
@@ -93,12 +94,47 @@ MeshCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1010674622471981240}
   m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
   m_IsTrigger: 0
+  m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 4
+  serializedVersion: 5
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: -5602576281174485142, guid: 1abbaf386b79c0249814923c46760fb7, type: 3}
+--- !u!114 &4927924695490857358
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1010674622471981240}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5e6e230b19e30394ea5f776b8d7f86e1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <CombineStatus>k__BackingField: 0
+  <ControllerIndex>k__BackingField: 0
+  <CombineAtStart>k__BackingField: 1
+  <CombineErrorStrategy>k__BackingField: 0
+  <AfterCombineAction>k__BackingField: 0
+  <IsIncompatible>k__BackingField: 0
+  <IncompatibilityReason>k__BackingField: 
+  <HasCombineErrors>k__BackingField: 0
+  <CombineErrors>k__BackingField: 
+  onCombineFinishedUnityEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  _renderer: {fileID: 4952326380376562220}
+  _filter: {fileID: 8463654187124618713}
+  _mesh: {fileID: -5602576281174485142, guid: 1abbaf386b79c0249814923c46760fb7, type: 3}
 --- !u!1 &4943275959976033711
 GameObject:
   m_ObjectHideFlags: 0
@@ -124,13 +160,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4943275959976033711}
+  serializedVersion: 2
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -0, y: 0.585907, z: 0.00000047683716}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1630078272139019987}
-  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &4747710560450652399
 MeshFilter:
