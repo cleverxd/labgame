@@ -142,6 +142,7 @@ public class EndScript : MonoBehaviour
         exposureAdjusted = true; // Prevent further changes after adjusting once
 
         uiController.killedByEnemyText.SetActive(true);
+        uiController.killedByEnemy = true;
         uiController.ShowWinLoseScreen();
     }
     public IEnumerator LoseByLaser()
@@ -170,6 +171,7 @@ public class EndScript : MonoBehaviour
         exposureAdjusted = true; // Prevent further changes after adjusting once
 
         uiController.killedByLaserText.SetActive(true);
+        uiController.killedByLasers = true;
         uiController.ShowWinLoseScreen();
     }
 }

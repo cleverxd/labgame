@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -19,12 +17,19 @@ public class UIController : MonoBehaviour
     [Header("Menus")]
     public GameObject loseWinMenu;
     public GameObject pauseMenu;
+    public GameObject settings;
+
+    [HideInInspector] public bool killedByEnemy;
+    [HideInInspector] public bool killedByLasers;
 
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            TogglePauseScreen();
+            if (!settings.activeSelf)
+                TogglePauseScreen();
+            else
+                ToggleSettings();
         }
     }
 
@@ -40,6 +45,29 @@ public class UIController : MonoBehaviour
         pauseText.SetActive(pauseMenu.activeSelf);
         darker.SetActive(pauseMenu.activeSelf);
         Time.timeScale = pauseMenu.activeSelf ? 0 : 1;
+    }
+
+    public void ToggleSettings()
+    {
+        if (killedByEnemy)
+        {
+            settings.SetActive(!settings.activeSelf);
+            loseWinMenu.SetActive(!loseWinMenu.activeSelf);
+            killedByEnemyText.SetActive(loseWinMenu.activeSelf);
+        }
+        else if (killedByLasers)
+        {
+            settings.SetActive(!settings.activeSelf);
+            loseWinMenu.SetActive(!loseWinMenu.activeSelf);
+            killedByLaserText.SetActive(loseWinMenu.activeSelf);
+        }
+        else
+        {
+            settings.SetActive(!settings.activeSelf);
+            pauseMenu.SetActive(!pauseMenu.activeSelf);
+            pauseText.SetActive(pauseMenu.activeSelf);
+        }
+
     }
 
     public void QuitGame()
