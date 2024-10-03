@@ -38,10 +38,10 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _BinarySamples: 5
-    - _MinSmoothness: 0.5
+    - _BinarySamples: 8
+    - _MinSmoothness: 0.4344
     - _Samples: 125
-    - _StepSize: 0.01
-    - _Thickness: 0.1
+    - _StepSize: 0.0145000005
+    - _Thickness: 0.176
     m_Colors: []
   m_BuildTextureStacks: []
