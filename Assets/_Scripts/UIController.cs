@@ -19,8 +19,9 @@ public class UIController : MonoBehaviour
     public GameObject pauseMenu;
     public GameObject settings;
 
-    [HideInInspector] public bool killedByEnemy;
-    [HideInInspector] public bool killedByLasers;
+    [HideInInspector] public bool killedByEnemy = false;
+    [HideInInspector] public bool killedByLasers = false;
+    [HideInInspector] public bool finished = false;
 
     private void Update()
     {
@@ -60,6 +61,12 @@ public class UIController : MonoBehaviour
             settings.SetActive(!settings.activeSelf);
             loseWinMenu.SetActive(!loseWinMenu.activeSelf);
             killedByLaserText.SetActive(loseWinMenu.activeSelf);
+        }
+        else if (finished)
+        {
+            settings.SetActive(!settings.activeSelf);
+            loseWinMenu.SetActive(!settings.activeSelf);
+            endText.SetActive(!settings.activeSelf);
         }
         else
         {

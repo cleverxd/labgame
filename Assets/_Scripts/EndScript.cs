@@ -112,6 +112,7 @@ public class EndScript : MonoBehaviour
 
             yield return new WaitForSeconds(lightTurnOffInterval); // Wait for the interval before turning off the next light
         }
+        uiController.finished = true;
         uiController.ShowWinLoseScreen();
         uiController.endText.SetActive(true);
     }
